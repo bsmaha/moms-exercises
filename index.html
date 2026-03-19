@@ -3,20 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Literata:wght@700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 20px; }
 
   body {
     font-family: 'Nunito', sans-serif;
     background: #fdf6ee;
     color: #2d2218;
-    font-size: 16px;
     line-height: 1.7;
+    -webkit-text-size-adjust: 100%;
   }
 
   .page {
-    max-width: 780px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 0 0 60px;
   }
@@ -24,51 +26,33 @@
   .hero {
     background: linear-gradient(135deg, #7c4f2a 0%, #b07242 60%, #d4935a 100%);
     color: white;
-    padding: 40px 36px 36px;
-    border-radius: 0 0 32px 32px;
-    margin-bottom: 36px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    right: -40px; top: -40px;
-    width: 200px; height: 200px;
-    background: rgba(255,255,255,0.07);
-    border-radius: 50%;
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    right: 40px; bottom: -60px;
-    width: 140px; height: 140px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 50%;
+    padding: 36px 24px 30px;
+    border-radius: 0 0 28px 28px;
+    margin-bottom: 28px;
   }
   .hero-badge {
-    font-size: 11px;
+    font-size: 0.7rem;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    opacity: 0.75;
+    opacity: 0.8;
     margin-bottom: 10px;
   }
   .hero h1 {
     font-family: 'Literata', serif;
-    font-size: 28px;
+    font-size: 1.7rem;
     font-weight: 700;
     line-height: 1.25;
     margin-bottom: 10px;
   }
   .hero p {
-    font-size: 14px;
+    font-size: 0.85rem;
     opacity: 0.85;
     font-weight: 600;
   }
 
   .section {
-    margin: 0 20px 28px;
+    margin: 0 14px 24px;
     background: white;
     border-radius: 20px;
     overflow: hidden;
@@ -79,223 +63,214 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    padding: 20px 24px 16px;
-    border-bottom: 1.5px solid #f0e6d8;
+    padding: 20px 20px 16px;
+    border-bottom: 2px solid #f0e6d8;
+    background: #fffaf5;
   }
   .section-icon {
-    width: 44px; height: 44px;
-    border-radius: 12px;
+    width: 52px; height: 52px;
+    border-radius: 14px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 22px;
+    font-size: 26px;
     flex-shrink: 0;
+  }
+ .section-title-header{
+    font-family: 'Literata', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
   }
   .section-title {
     font-family: 'Literata', serif;
-    font-size: 19px;
+    font-size: 1.2rem;
     font-weight: 700;
     color: #5a3018;
+    line-height: 1.3;
   }
 
   .section-body {
-    padding: 20px 24px;
+    padding: 20px;
   }
 
-  /* General tips */
   .tip-item {
-    display: flex;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px dashed #f0e6d8;
-    align-items: flex-start;
-  }
-  .tip-item:last-child { border-bottom: none; }
-  .tip-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: #b07242;
-    margin-top: 8px;
-    flex-shrink: 0;
-  }
-  .tip-text { font-size: 15px; }
-
-  /* Exercise cards */
-  .exercise-card {
-    background: #fdf6ee;
-    border-radius: 14px;
-    padding: 18px;
-    margin-bottom: 14px;
-    border: 1.5px solid #f0e6d8;
-  }
-  .exercise-card:last-child { margin-bottom: 0; }
-
-  .exercise-name {
-    font-family: 'Literata', serif;
-    font-size: 17px;
-    font-weight: 700;
-    color: #5a3018;
-    margin-bottom: 8px;
-  }
-
-  .rep-badges {
-    display: flex; gap: 8px; flex-wrap: wrap;
-    margin-bottom: 14px;
-  }
-  .badge {
-    background: #7c4f2a;
-    color: white;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 20px;
-    letter-spacing: 0.5px;
-  }
-
-  .exercise-illustration {
-    background: white;
-    border-radius: 10px;
-    border: 1px solid #f0e6d8;
-    padding: 16px;
-    margin-bottom: 14px;
-    text-align: center;
-  }
-
-  .exercise-illustration svg {
-    max-width: 100%;
-  }
-
-  .ex-label {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #b07242;
-    margin-bottom: 4px;
-    margin-top: 10px;
-  }
-  .ex-label:first-child { margin-top: 0; }
-  .ex-desc { font-size: 14px; line-height: 1.6; }
-
-  .tip-box {
-    background: linear-gradient(135deg, #fff8f0, #fdeedd);
-    border-left: 4px solid #d4935a;
-    border-radius: 0 10px 10px 0;
-    padding: 10px 14px;
-    margin-top: 12px;
-    font-size: 13.5px;
-    font-style: italic;
-  }
-  .tip-box strong { font-style: normal; color: #7c4f2a; }
-
-  /* Numbered strategies */
-  .strategy-item {
     display: flex;
     gap: 14px;
     padding: 14px 0;
     border-bottom: 1px dashed #f0e6d8;
     align-items: flex-start;
   }
+  .tip-item:last-child { border-bottom: none; }
+  .tip-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: #b07242;
+    margin-top: 10px;
+    flex-shrink: 0;
+  }
+  .tip-text { font-size: 1rem; line-height: 1.65; }
+  .tip-text strong { color: #5a3018; }
+
+  .exercise-card {
+    background: #fdf6ee;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border: 2px solid #f0e6d8;
+  }
+  .exercise-card:last-child { margin-bottom: 0; }
+
+  .exercise-name {
+    font-family: 'Literata', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #5a3018;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .rep-badges {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .badge {
+    background: #7c4f2a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+
+  .exercise-illustration {
+    background: white;
+    border-radius: 12px;
+    border: 1.5px solid #f0e6d8;
+    padding: 16px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .ex-label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #b07242;
+    margin-bottom: 6px;
+    margin-top: 12px;
+  }
+  .ex-label:first-child { margin-top: 0; }
+  .ex-desc { font-size: 1rem; line-height: 1.65; }
+  .ex-desc strong { color: #5a3018; }
+
+  .tip-box {
+    background: linear-gradient(135deg, #fff8f0, #fdeedd);
+    border-left: 5px solid #d4935a;
+    border-radius: 0 12px 12px 0;
+    padding: 12px 16px;
+    margin-top: 14px;
+    font-size: 0.95rem;
+    font-style: italic;
+    line-height: 1.6;
+  }
+  .tip-box strong { font-style: normal; color: #7c4f2a; }
+
+  .strategy-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px dashed #f0e6d8;
+    align-items: flex-start;
+  }
   .strategy-item:last-child { border-bottom: none; }
   .strategy-num {
-    width: 32px; height: 32px;
+    width: 40px; height: 40px;
     border-radius: 50%;
     background: #7c4f2a;
     color: white;
     font-weight: 800;
-    font-size: 14px;
+    font-size: 1rem;
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
   }
   .strategy-content strong {
     display: block;
-    font-size: 14px;
+    font-size: 1rem;
     color: #5a3018;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
+    line-height: 1.4;
   }
-  .strategy-content span { font-size: 13.5px; color: #6b4a2a; }
+  .strategy-content span { font-size: 0.95rem; color: #6b4a2a; line-height: 1.6; }
 
-  /* Urgency wave */
   .wave-diagram {
     background: white;
-    border: 1.5px solid #f0e6d8;
-    border-radius: 12px;
+    border: 2px solid #f0e6d8;
+    border-radius: 14px;
     padding: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     text-align: center;
   }
-  .wave-diagram svg { max-width: 100%; }
 
-  /* Alert box */
   .alert-box {
     background: #fff3e0;
-    border: 1.5px solid #f0c080;
-    border-radius: 12px;
-    padding: 14px 16px;
-    margin-top: 12px;
-    font-size: 13.5px;
+    border: 2px solid #f0c080;
+    border-radius: 14px;
+    padding: 16px;
+    margin-top: 14px;
+    font-size: 0.95rem;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    line-height: 1.6;
+  }
+  .alert-icon { font-size: 24px; flex-shrink: 0; }
+
+  .recap-list { list-style: none; padding: 0; }
+  .recap-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #f0e6d8;
+    font-size: 1rem;
+    line-height: 1.6;
     display: flex;
     gap: 10px;
     align-items: flex-start;
   }
-  .alert-icon { font-size: 20px; flex-shrink: 0; }
-
-  /* Cough section */
-  .recap-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  .recap-card {
-    background: #fdf6ee;
-    border: 1.5px solid #f0e6d8;
-    border-radius: 10px;
-    padding: 12px 14px;
-  }
-  .recap-card-title {
-    font-size: 12px;
+  .recap-list li:last-child { border-bottom: none; }
+  .recap-list li::before {
+    content: '✓';
+    color: #b07242;
     font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #7c4f2a;
-    margin-bottom: 6px;
-  }
-  .recap-card ul { padding-left: 16px; font-size: 13px; }
-  .recap-card li { margin-bottom: 3px; }
-
-  @media (max-width: 480px) {
-    .recap-grid { grid-template-columns: 1fr; }
-    .hero { padding: 30px 20px; }
-    .hero h1 { font-size: 22px; }
-    .section { margin: 0 12px 24px; }
-    .section-body { padding: 16px; }
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 1px;
   }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- HERO -->
   <div class="hero">
     <div class="hero-badge">🏥 Sentara — Здоров'я тазового дна</div>
-    <h1>Вправи та поради<br>для Лариси Смаги</h1>
-    <p>Підготовлено: Кармела Дель Еспіріту Санто &nbsp;·&nbsp; Фізична терапія</p>
+    <h1>Вправи та поради для Лариси</h1>
+    <p>Лікар: Кармела Дель Еспіріту Санто · Фізична терапія</p>
   </div>
 
   <!-- GENERAL TIPS -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon" style="background:#fff3e0;">💧</div>
-      <div class="section-title">Загальні поради лікаря</div>
+      <div class="section-title-header">Загальні поради лікаря</div>
     </div>
     <div class="section-body">
       <div class="tip-item"><div class="tip-dot"></div><div class="tip-text"><strong>Пийте воду рівномірно</strong> протягом дня. Не пийте багато одразу під час їжі.</div></div>
       <div class="tip-item"><div class="tip-dot"></div><div class="tip-text"><strong>Зменшіть вживання рідини</strong> за 2 години до сну.</div></div>
-      <div class="tip-item"><div class="tip-dot"></div><div class="tip-text">Під час сечовипускання <strong>не тужтеся</strong> — розслабтеся і дозвольте сечі текти природно.</div></div>
-      <div class="tip-item"><div class="tip-dot"></div><div class="tip-text">Щоб краще випорожнити сечовий міхур: <strong>встаньте після струменя, нахиліться вперед (нахиліть таз), потім знову сядьте</strong> і спробуйте ще раз.</div></div>
+      <div class="tip-item"><div class="tip-dot"></div><div class="tip-text">При сечовипусканні <strong>не тужтеся</strong> — розслабтеся і дозвольте сечі текти природно.</div></div>
+      <div class="tip-item"><div class="tip-dot"></div><div class="tip-text">Щоб краще спорожнити міхур: <strong>встаньте після струменя → нахиліть таз вперед → знову сядьте</strong> і спробуйте ще раз.</div></div>
     </div>
   </div>
 
-  <!-- BREATHING EXERCISES -->
+  <!-- BREATHING -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon" style="background:#e8f5e9;">🌬️</div>
@@ -303,96 +278,60 @@
     </div>
     <div class="section-body">
 
-      <!-- Exercise 1 -->
       <div class="exercise-card">
         <div class="exercise-name">1. Діафрагмальне дихання лежачи</div>
         <div class="rep-badges">
           <span class="badge">10 повторів</span>
           <span class="badge">1 підхід</span>
-          <span class="badge">2 рази на тиждень</span>
+          <span class="badge">2× на тиждень</span>
         </div>
-
         <div class="exercise-illustration">
-          <!-- Simple lying figure illustration -->
-          <svg viewBox="0 0 320 110" xmlns="http://www.w3.org/2000/svg" style="height:100px">
-            <!-- Mat -->
-            <rect x="20" y="80" width="280" height="8" rx="4" fill="#e8ddd0"/>
-            <!-- Body -->
-            <ellipse cx="160" cy="72" rx="110" ry="14" fill="#d4b896"/>
-            <!-- Head -->
-            <circle cx="60" cy="65" r="18" fill="#e8c9a0"/>
-            <!-- Legs bent (knees up) -->
-            <path d="M 220 72 Q 240 50 260 65 Q 270 72 260 78 Q 240 85 220 78 Z" fill="#d4b896"/>
-            <path d="M 245 65 Q 265 40 280 52 Q 285 60 278 68 Q 262 75 245 70 Z" fill="#d4b896"/>
-            <!-- Arrow for belly -->
-            <text x="155" y="60" text-anchor="middle" font-family="Nunito" font-size="9" fill="#7c4f2a">живіт</text>
-            <path d="M 160 64 L 160 74" stroke="#7c4f2a" stroke-width="2" marker-end="url(#arr)"/>
-            <defs>
-              <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
-                <path d="M0,0 L0,6 L6,3 Z" fill="#7c4f2a"/>
-              </marker>
-            </defs>
-            <!-- Labels -->
-            <text x="80" y="100" text-anchor="middle" font-family="Nunito" font-size="10" fill="#7c4f2a">КРОК 1: Видих</text>
-            <text x="230" y="100" text-anchor="middle" font-family="Nunito" font-size="10" fill="#7c4f2a">КРОК 2: Вдих</text>
+          <svg viewBox="0 0 300 90" xmlns="http://www.w3.org/2000/svg" width="100%">
+            <rect x="10" y="72" width="280" height="7" rx="3" fill="#e8ddd0"/>
+            <ellipse cx="155" cy="65" rx="105" ry="13" fill="#d4b896"/>
+            <circle cx="55" cy="58" r="17" fill="#e8c9a0"/>
+            <path d="M210 65 Q228 46 248 58 Q256 65 248 72 Q228 78 210 72 Z" fill="#d4b896"/>
+            <path d="M238 58 Q255 38 270 48 Q276 56 270 63 Q255 70 238 66 Z" fill="#d4b896"/>
+            <text x="148" y="52" text-anchor="middle" font-family="Nunito" font-size="10" fill="#7c4f2a" font-weight="700">живіт ↓ видих</text>
+            <text x="148" y="83" text-anchor="middle" font-family="Nunito" font-size="9" fill="#7c4f2a">живіт ↑ вдих</text>
           </svg>
         </div>
-
         <div class="ex-label">📌 Вихідне положення</div>
         <div class="ex-desc">Ляжте на спину, зігніть коліна, стопи на підлозі.</div>
-
         <div class="ex-label">▶️ Рух</div>
         <div class="ex-desc">
-          <strong>Видих:</strong> втягніть живіт — ніби тягнете пупок до підлоги.<br>
-          <strong>Вдих:</strong> наповніть живіт повітрям (не груди — саме живіт має підніматися).
+          <strong>Видих:</strong> втягніть живіт — ніби тягнете пупок до підлоги.<br><br>
+          <strong>Вдих:</strong> наповніть живіт повітрям (саме живіт підіймається, не груди).
         </div>
-
-        <div class="tip-box"><strong>💡 Порада:</strong> Тримайте поперек притиснутим до підлоги під час всієї вправи.</div>
+        <div class="tip-box"><strong>💡 Порада:</strong> Тримайте поперек притиснутим до підлоги весь час.</div>
       </div>
 
-      <!-- Exercise 2 -->
       <div class="exercise-card">
         <div class="exercise-name">2. Дихання через грудну клітку лежачи</div>
         <div class="rep-badges">
           <span class="badge">10 повторів</span>
           <span class="badge">1 підхід</span>
-          <span class="badge">2 рази на тиждень</span>
+          <span class="badge">2× на тиждень</span>
         </div>
-
         <div class="exercise-illustration">
-          <svg viewBox="0 0 320 110" xmlns="http://www.w3.org/2000/svg" style="height:100px">
-            <rect x="20" y="80" width="280" height="8" rx="4" fill="#e8ddd0"/>
-            <ellipse cx="160" cy="72" rx="110" ry="14" fill="#d4b896"/>
-            <circle cx="60" cy="65" r="18" fill="#e8c9a0"/>
-            <path d="M 220 72 Q 240 50 260 65 Q 270 72 260 78 Q 240 85 220 78 Z" fill="#d4b896"/>
-            <path d="M 245 65 Q 265 40 280 52 Q 285 60 278 68 Q 262 75 245 70 Z" fill="#d4b896"/>
-            <!-- Hands on ribs -->
-            <ellipse cx="130" cy="60" rx="18" ry="8" fill="#c8a070" opacity="0.7"/>
-            <ellipse cx="185" cy="60" rx="18" ry="8" fill="#c8a070" opacity="0.7"/>
-            <!-- Arrow expand -->
-            <path d="M 145 58 L 125 52" stroke="#7c4f2a" stroke-width="1.5" marker-end="url(#arr2)"/>
-            <path d="M 175 58 L 195 52" stroke="#7c4f2a" stroke-width="1.5" marker-end="url(#arr2)"/>
-            <text x="160" y="45" text-anchor="middle" font-family="Nunito" font-size="8" fill="#7c4f2a">ребра розширюються</text>
-            <defs>
-              <marker id="arr2" markerWidth="5" markerHeight="5" refX="2.5" refY="2.5" orient="auto">
-                <path d="M0,0 L0,5 L5,2.5 Z" fill="#7c4f2a"/>
-              </marker>
-            </defs>
-            <text x="80" y="100" text-anchor="middle" font-family="Nunito" font-size="10" fill="#7c4f2a">КРОК 1: Вдих</text>
-            <text x="230" y="100" text-anchor="middle" font-family="Nunito" font-size="10" fill="#7c4f2a">КРОК 2: Видих</text>
+          <svg viewBox="0 0 300 90" xmlns="http://www.w3.org/2000/svg" width="100%">
+            <rect x="10" y="72" width="280" height="7" rx="3" fill="#e8ddd0"/>
+            <ellipse cx="155" cy="65" rx="105" ry="13" fill="#d4b896"/>
+            <circle cx="55" cy="58" r="17" fill="#e8c9a0"/>
+            <path d="M210 65 Q228 46 248 58 Q256 65 248 72 Q228 78 210 72 Z" fill="#d4b896"/>
+            <ellipse cx="125" cy="55" rx="17" ry="7" fill="#c8a070" opacity="0.75"/>
+            <ellipse cx="178" cy="55" rx="17" ry="7" fill="#c8a070" opacity="0.75"/>
+            <text x="152" y="42" text-anchor="middle" font-family="Nunito" font-size="9" fill="#7c4f2a" font-weight="700">← ребра розширюються →</text>
           </svg>
         </div>
-
         <div class="ex-label">📌 Вихідне положення</div>
-        <div class="ex-desc">Ляжте на спину, <strong>покладіть руки на ребра</strong> (пальці дивляться всередину), зігніть коліна, стопи на підлозі.</div>
-
+        <div class="ex-desc">Ляжте на спину. <strong>Покладіть руки на ребра</strong> (пальці дивляться всередину). Зігніть коліна, стопи на підлозі.</div>
         <div class="ex-label">▶️ Рух</div>
         <div class="ex-desc">
-          <strong>Вдих:</strong> повільно наповніть груди так, щоб ребра розширились і пальці роз'їхались в сторони.<br>
-          <strong>Видих:</strong> ребра звужуються — пальці знову сходяться.
+          <strong>Вдих:</strong> ребра розширюються — пальці роз'їжджаються в сторони.<br><br>
+          <strong>Видих:</strong> ребра звужуються — пальці сходяться.
         </div>
-
-        <div class="tip-box"><strong>💡 Порада:</strong> Живіт і верхня частина грудей мають залишатися майже нерухомими. Рухаються тільки ребра по боках.</div>
+        <div class="tip-box"><strong>💡 Порада:</strong> Живіт і верхня частина грудей майже не рухаються. Рухаються тільки ребра по боках.</div>
       </div>
 
     </div>
@@ -405,7 +344,7 @@
       <div class="section-title">Тренування сечового міхура</div>
     </div>
     <div class="section-body">
-      <p style="font-size:14px;margin-bottom:18px;color:#5a3018;">М'язи навколо міхура можна натренувати. Ціль — збільшити час між походами в туалет до <strong>3–4 годин</strong>.</p>
+      <p style="font-size:1rem;margin-bottom:20px;color:#5a3018;line-height:1.65;">Ціль — збільшити час між походами в туалет до <strong>3–4 годин</strong>.</p>
 
       <div class="strategy-item">
         <div class="strategy-num">1</div>
@@ -418,14 +357,14 @@
         <div class="strategy-num">2</div>
         <div class="strategy-content">
           <strong>Вранці — спочатку в туалет</strong>
-          <span>Почніть свій день із спорожнення міхура — це старт вашого розкладу.</span>
+          <span>Це старт вашого денного розкладу.</span>
         </div>
       </div>
       <div class="strategy-item">
         <div class="strategy-num">3</div>
         <div class="strategy-content">
           <strong>Ходіть за розкладом</strong>
-          <span>Йдіть у туалет у визначений час — навіть якщо немає позиву. Лікар допоможе скласти розклад.</span>
+          <span>Йдіть у туалет у визначений час — навіть якщо немає позиву.</span>
         </div>
       </div>
       <div class="strategy-item">
@@ -445,8 +384,8 @@
       <div class="strategy-item">
         <div class="strategy-num">6</div>
         <div class="strategy-content">
-          <strong>Коли хочеться — застосуйте техніку</strong>
-          <span>Не біжіть одразу! Зробіть вправу Кегеля або глибоке дихання. Зачекайте, поки позив вщухне.</span>
+          <strong>Коли дуже хочеться — не біжіть!</strong>
+          <span>Зробіть вправу Кегеля або глибоке дихання. Зачекайте, поки позив вщухне, і тільки тоді йдіть спокійно.</span>
         </div>
       </div>
       <div class="strategy-item">
@@ -459,94 +398,73 @@
       <div class="strategy-item">
         <div class="strategy-num">8</div>
         <div class="strategy-content">
-          <strong>Зменшіть вживання:</strong>
-          <span>Алкоголю, газованих напоїв та кофеїну — вони подразнюють міхур і збільшують позив.</span>
+          <strong>Зменшіть вживання кофеїну та газованих напоїв</strong>
+          <span>Вони подразнюють міхур і посилюють позив.</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- URGENCY TIPS -->
+  <!-- URGENCY -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon" style="background:#fce4ec;">🌊</div>
-      <div class="section-title">Коли дуже хочеться в туалет — що робити</div>
+      <div class="section-title">Коли дуже хочеться — що робити</div>
     </div>
     <div class="section-body">
 
       <div class="wave-diagram">
-        <svg viewBox="0 0 340 130" xmlns="http://www.w3.org/2000/svg" style="height:120px;width:100%">
-          <!-- Wave -->
-          <path d="M 20 100 Q 80 100 110 50 Q 140 5 170 5 Q 200 5 220 50 Q 250 100 320 100" stroke="#b07242" stroke-width="3" fill="none"/>
-          <!-- Stage labels -->
-          <text x="20" y="120" font-family="Nunito" font-size="9" fill="#5a3018" text-anchor="middle">Починається</text>
-          <text x="68" y="70" font-family="Nunito" font-size="9" fill="#5a3018" text-anchor="middle">Зупиніться</text>
-          <text x="100" y="42" font-family="Nunito" font-size="9" fill="#5a3018" text-anchor="middle">Стисніть</text>
-          <text x="170" y="20" font-family="Nunito" font-size="9" fill="#5a3018" text-anchor="middle">Відволікайтесь</text>
-          <text x="235" y="42" font-family="Nunito" font-size="9" fill="#5a3018" text-anchor="middle">Зачекайте</text>
-          <text x="270" y="80" font-family="Nunito" font-size="9" fill="#5a3018" text-anchor="middle">Вщухає</text>
-          <text x="320" y="120" font-family="Nunito" font-size="9" fill="#5a3018" text-anchor="middle">Йдіть спокійно</text>
-          <!-- Dots on wave -->
-          <circle cx="20" cy="100" r="4" fill="#7c4f2a"/>
-          <circle cx="170" cy="5" r="4" fill="#7c4f2a"/>
-          <circle cx="320" cy="100" r="4" fill="#7c4f2a"/>
+        <svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg" width="100%">
+          <path d="M 15 95 Q 70 95 100 48 Q 130 5 155 5 Q 180 5 205 48 Q 230 95 285 95" stroke="#b07242" stroke-width="3" fill="none"/>
+          <circle cx="15" cy="95" r="5" fill="#7c4f2a"/>
+          <circle cx="155" cy="5" r="5" fill="#7c4f2a"/>
+          <circle cx="285" cy="95" r="5" fill="#7c4f2a"/>
+          <text x="15" y="115" font-family="Nunito" font-size="11" fill="#5a3018" text-anchor="middle" font-weight="700">Починається</text>
+          <text x="72" y="62" font-family="Nunito" font-size="10" fill="#5a3018" text-anchor="middle">Стисніть</text>
+          <text x="155" y="22" font-family="Nunito" font-size="10" fill="#5a3018" text-anchor="middle">Відволікайтесь</text>
+          <text x="238" y="62" font-family="Nunito" font-size="10" fill="#5a3018" text-anchor="middle">Вщухає</text>
+          <text x="285" y="115" font-family="Nunito" font-size="11" fill="#5a3018" text-anchor="middle" font-weight="700">Йдіть спокійно</text>
         </svg>
-        <p style="font-size:11px;color:#7c4f2a;font-style:italic;margin-top:4px;">Позив — як хвиля: наростає, досягає піку і вщухає</p>
+        <p style="font-size:0.85rem;color:#7c4f2a;font-style:italic;margin-top:6px;">Позив — як хвиля. Він наростає і вщухає сам.</p>
       </div>
 
-      <div class="tip-item"><div class="tip-dot"></div><div class="tip-text"><strong>Не біжіть!</strong> Швидкий рух викликає викид адреналіну, що посилює позив. Ідіть повільно.</div></div>
-      <div class="tip-item"><div class="tip-dot"></div><div class="tip-text"><strong>Глибоке дихання животом</strong> — заспокоює нервову систему і зменшує позив.</div></div>
-      <div class="tip-item"><div class="tip-dot"></div><div class="tip-text"><strong>"Зупинись і стисни"</strong> — зробіть 4–5 швидких стискань м'язів тазового дна (як вправа Кегеля).</div></div>
-      <div class="tip-item"><div class="tip-dot"></div><div class="tip-text"><strong>Сядьте</strong> — тиск на промежину допомагає зупинити скорочення міхура. Можна схрестити ноги, сісти на край стільця.</div></div>
-      <div class="tip-item"><div class="tip-dot"></div><div class="tip-text"><strong>Відволічіться</strong> — порахуйте подумки, розгадуйте кросворд, перегляньте список покупок — позив вщухне.</div></div>
-      <div class="tip-item"><div class="tip-dot"></div><div class="tip-text"><strong>Перший позив</strong> виникає коли міхур лише наполовину повний. Якщо він надто чутливий — мозок отримує хибний сигнал. Можна почекати!</div></div>
+      <ul class="recap-list">
+        <li><strong>Не біжіть!</strong> Швидкий рух посилює позив. Ідіть повільно.</li>
+        <li><strong>Глибоко дихайте животом</strong> — це заспокоює нервову систему.</li>
+        <li><strong>Стисніть м'язи тазового дна</strong> 4–5 разів швидко і сильно.</li>
+        <li><strong>Сядьте або схрестіть ноги</strong> — тиск знизу зупиняє скорочення міхура.</li>
+        <li><strong>Відволічіться:</strong> порахуйте подумки від 100 назад, згадайте список покупок.</li>
+      </ul>
 
       <div class="alert-box">
         <div class="alert-icon">⚠️</div>
-        <div style="font-size:13.5px;">У деяких людей напруга м'язів тазового дна під час позиву може погіршити стан. Якщо після стискань стає гірше — скажіть фізіотерапевту.</div>
+        <div>Якщо після стискання м'язів стає гірше — скажіть фізіотерапевту.</div>
       </div>
     </div>
   </div>
 
-  <!-- COUGHING PREP -->
+  <!-- COUGHING -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon" style="background:#f3e5f5;">🤧</div>
       <div class="section-title">Як правильно кашляти та чхати</div>
     </div>
     <div class="section-body">
-      <p style="font-size:14px;margin-bottom:14px;">Кашель, чхання та висякування носа створюють сильний тиск на тазове дно. Правильна техніка допомагає його зменшити.</p>
-
-      <div class="recap-grid">
-        <div class="recap-card">
-          <div class="recap-card-title">🫁 Дихання</div>
-          <ul>
-            <li>Перед кашлем зробіть <strong>глибокий вдих</strong></li>
-            <li>Глибокий вдих → кращий видих → менше тиску вниз</li>
-            <li>Не сякайтеся в туалеті — це дає змішані сигнали тазовому дну</li>
-          </ul>
-        </div>
-        <div class="recap-card">
-          <div class="recap-card-title">🦴 Положення тіла</div>
-          <ul>
-            <li>Не горбіться при кашлі</li>
-            <li>Злегка <strong>підніміть грудну клітку</strong></li>
-            <li>Нахиліть таз назад ("відставте сідниці")</li>
-            <li>Живіт не має випинатися вперед</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="tip-box" style="margin-top:14px;">
-        <strong>💡 Коротко запам'ятати:</strong> Вдих глибокий → грудна клітка не осідає → таз відводиться назад → живіт не випинається.
-      </div>
+      <p style="font-size:1rem;margin-bottom:16px;line-height:1.65;">Кашель і чхання створюють сильний тиск на тазове дно. Ось як його зменшити:</p>
+      <ul class="recap-list">
+        <li>Перед кашлем зробіть <strong>глибокий вдих</strong></li>
+        <li>При кашлі <strong>не горбіться</strong> — злегка підніміть грудну клітку</li>
+        <li><strong>Відведіть таз назад</strong> ("відставте сідниці трохи назад")</li>
+        <li>Живіт <strong>не повинен випинатися</strong> вперед</li>
+        <li><strong>Не сякайтеся в туалеті</strong> — це дає неправильні сигнали тазовому дну</li>
+      </ul>
+      <div class="tip-box"><strong>💡 Коротко:</strong> Глибокий вдих → грудна клітка не осідає → таз назад → живіт не випинається.</div>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <div style="text-align:center;padding:0 20px;font-size:12px;color:#b07242;font-style:italic;">
-    Якщо відчуваєте біль або дискомфорт під час вправ — зупиніться та зверніться до лікаря.<br>
-    <span style="font-weight:700;color:#7c4f2a;">Sentara · Кармела Дель Еспіріту Санто, PT</span>
+  <div style="text-align:center;padding:0 20px 20px;font-size:0.85rem;color:#b07242;font-style:italic;line-height:1.8;">
+    Якщо відчуваєте біль або дискомфорт — зупиніться і зверніться до лікаря.<br>
+    <strong style="color:#7c4f2a;">Sentara · Кармела Дель Еспіріту Санто, PT</strong>
   </div>
 
 </div>
